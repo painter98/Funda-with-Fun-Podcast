@@ -22,8 +22,8 @@ function Profile() {
   return (
     <div className='input-wrapper'>
       <h1>Profile</h1>
-      <p>{user.email}</p>
-      <p>{user.uid}</p>
+      <p>Email Id: {user.email}</p>
+      <p>UserName: {user.name}</p>
       <Button text={'Log out'} onClick={handleLogOut} disabled={false}/>
     </div>
   )
