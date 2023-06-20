@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;600;700&display=swap');
+
+:root{/*root variables are the names for colors given with customisation. 
+  this will act as a reference of colors and easy to change in all the required places at once.
+  var() is used to help them convert as css colors*/
+  --theme:#20062e;
+  --blue:#18b2de;
+  --white:#ffffff;
+  --grey:#d7d7d7;
+  --purple-grey:#8f8297;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter',sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--theme);
+  color:var(--white);
+}
+
+code,input {
+  font-family: 'Inter',sans-serif;
+}
+
+
+.input-wrapper{
+  width:80%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+  margin-top:4rem;
+  background-color: var(--theme);
+}
+
+.input-wrapper h1{
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.podcast-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.input-wrapper .podcast-title-heading{
+  width:100%;
+  text-align: left;
+}
+
+.banner-image{
+  height:300px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  object-fit: cover;
+  width:100%;
+}

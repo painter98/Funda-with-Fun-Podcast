@@ -1,0 +1,39 @@
+.links a{
+  text-decoration: none;
+  color:#8ea6bb;
+}
+
+.links {
+  display: flex;
+  gap:1.25rem;
+  justify-content: center;
+  align-items: center;
+  padding:1.5rem;
+}
+
+.links a:hover{
+  color:var(--white);
+  transition: all 0.3s;
+}
+
+.active{
+  color: var(--white) !important;
+}
+.gradient{
+  position:absolute;
+  top: -100px;
+  width:800px;
+  height:150px;
+  background-color: #18b2de;
+  margin:auto;
+  filter:blur(100px);
+  z-index:-1;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+

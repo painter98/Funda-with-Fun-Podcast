@@ -1,0 +1,25 @@
+.custom-audio-player{
+    display: flex;
+    justify-content: space-around;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:0.5rem;
+    background-color: rgb(65, 15, 65);
+}
+
+.audio-file-image{
+    width:40px;
+    height:40px;
+}
+
+.toggle-range{
+    background-color:rgb(142, 45, 142);
+}
+
+.toggle{
+    display: flex;
+    justify-content: flex-start;
+    gap:0.5rem;
+}
