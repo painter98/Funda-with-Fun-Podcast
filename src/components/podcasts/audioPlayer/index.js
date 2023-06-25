@@ -67,7 +67,7 @@ function AudioPlayer({audioFile,Image}) {
             type='range'
             className='toggle-range'
             max={duration}
-            step={0.01}
+            step={duration/100}
             value={currentTime}/>
         <p>{isplaying && parseFloat(audioRef.current.duration.toFixed(0))/100}</p>
       </div>

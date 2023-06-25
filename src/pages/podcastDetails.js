@@ -9,8 +9,10 @@ import Button from '../components/commonComponents/button';
 import { collection, onSnapshot , query } from 'firebase/firestore';
 import EpisodeDetails from '../components/podcasts/episodeDetails';
 import AudioPlayer from '../components/podcasts/audioPlayer';
+import { useSelector } from 'react-redux';
 
 function PodcastDetails() {
+  let user = useSelector(state=>state.user.user);
   const {id} = useParams();
   let navigate = useNavigate();
   //console.log(id);
@@ -32,8 +34,8 @@ function PodcastDetails() {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      //console.log("Document data:", docSnap.data());
       setPodcast({id:id,...docSnap.data()})
+      console.log("Document data:", docSnap.data(),'podcast',podcast);
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
@@ -54,7 +56,6 @@ function PodcastDetails() {
         episodesData.push({id:doc.id,...doc.data()});
       });
       setEpisodes(episodesData);
-      //navigate('./podcast:id')
       },(error)=> console.log('error in create episode',error)
       )
 
@@ -72,7 +73,7 @@ const createEpisode = () => {
         <div className='input-wrapper'>
           <div style={{width:'100%',display:'flex', justifyContent:'space-between', alignItems:'center'}}>
               <h1 className='podcast-title-heading'>{podcast.title}</h1>
-              <p style={{width:'20%'}}><Button text={'create Episode'} onClick={createEpisode}/></p>
+              <p style={{width:'20%'}}>{podcast.createdBy===user.uid?<Button text={'create Episode'} onClick={createEpisode}/>:''}</p>
           </div>
           <img src={podcast.bannerImage} className='banner-image'/>
           <p className='podcast-title-heading'>{podcast.description}</p>
