@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Funda-with-Fun-Podcast/static/css/main.87b198a2.css",
-    "main.js": "/Funda-with-Fun-Podcast/static/js/main.d4ce0e77.js",
+    "main.css": "/Funda-with-Fun-Podcast/static/css/main.5a75ca19.css",
+    "main.js": "/Funda-with-Fun-Podcast/static/js/main.58d4e35c.js",
     "index.html": "/Funda-with-Fun-Podcast/index.html",
-    "main.87b198a2.css.map": "/Funda-with-Fun-Podcast/static/css/main.87b198a2.css.map",
-    "main.d4ce0e77.js.map": "/Funda-with-Fun-Podcast/static/js/main.d4ce0e77.js.map"
+    "main.5a75ca19.css.map": "/Funda-with-Fun-Podcast/static/css/main.5a75ca19.css.map",
+    "main.58d4e35c.js.map": "/Funda-with-Fun-Podcast/static/js/main.58d4e35c.js.map"
   },
   "entrypoints": [
-    "static/css/main.87b198a2.css",
-    "static/js/main.d4ce0e77.js"
+    "static/css/main.5a75ca19.css",
+    "static/js/main.58d4e35c.js"
   ]
 }
