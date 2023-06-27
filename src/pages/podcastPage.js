@@ -28,7 +28,6 @@ function PodcastPage() {
     });
 
     dispatch(setPodcasts(podcastData));
-    //navigate('./podcast:id')
     },(error)=> console.log('error in podcast page',error)
     )
 
@@ -46,8 +45,8 @@ function PodcastPage() {
       {
       filterPodcast.length>0?
       <div className='podcast-flex'>
-        {filterPodcast.map(item =>
-          <PodcastCard key={Date.now()} id={item.id} title={item.title} displayImage={item.displayImage}/>
+        {filterPodcast.map((item,idx) =>
+          <PodcastCard id={item.id} title={item.title} displayImage={item.displayImage}/>
         )}
       </div>
       :<p>No podcast</p>

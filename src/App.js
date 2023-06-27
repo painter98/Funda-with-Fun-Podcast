@@ -8,6 +8,7 @@ import PodcastPage from './pages/podcastPage';
 import CreatePodcast from './pages/createpodcast';
 import PodcastDetails from './pages/podcastDetails';
 import CreateEpisode from './pages/createEpisode';
+import EditProfile from './pages/editProfile';
 import Header from './components/commonComponents/header';
 import {toast, ToastContainer} from 'react-toastify';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -59,6 +60,7 @@ function App() {
         <Route path='/' element={<Signup/>}/>
         <Route element={<PrivateRoutes/>}>{/*it keeps the other routes private and protected */}
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/edit-profile' element={<EditProfile/>}/>
           <Route path='/create-podcast' element={<CreatePodcast/>}/>
           <Route path='/podcast' element={<PodcastPage/>}/>
           <Route path='/podcast/:id' element={<PodcastDetails/>}/>

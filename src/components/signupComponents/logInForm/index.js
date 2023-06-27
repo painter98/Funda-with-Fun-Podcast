@@ -26,21 +26,22 @@ export default function LoginForm() {
           const userCrendential = await signInWithEmailAndPassword(
             auth,
             email,
-            password
+            password,
           )
           const user = userCrendential.user;
+          console.log('login',user);
   
           const userDoc = await getDoc(doc(db,'users',user.uid));
-          console.log('userDoc',userDoc)
           const userData = userDoc.data();
+          console.log('userDoc',userData)
   
-          console.log(user);
   
           dispatch(
             setUser({
               name:userData.name,
               email:user.email,
-              uid:user.uid
+              uid:user.uid,
+              photoURL:userData.photoURL
             })
           )
           toast.success('Log In successful');
