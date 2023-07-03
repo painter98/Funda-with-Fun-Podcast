@@ -71,7 +71,10 @@ const createEpisode = () => {
     <div >
       {podcast.id && (
         <div className='input-wrapper'>
-          <div style={{width:'100%',display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+          <div style={{width:'100%',
+            display:'flex', 
+            justifyContent:'space-around', 
+            alignItems:'center'}}>
               <h1 className='podcast-title-heading'>{podcast.title}</h1>
               <p style={{width:'20%'}}>{podcast.createdBy===user.uid?<Button text={'create Episode'} onClick={createEpisode}/>:''}</p>
           </div>

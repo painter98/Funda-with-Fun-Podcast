@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { getDoc,doc } from 'firebase/firestore';
 import {auth,db} from '../../../firebase';
 import { setUser } from '../../../slices/userSlice';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 export default function LoginForm() {

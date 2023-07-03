@@ -4,43 +4,55 @@ import Button from '../components/commonComponents/button';
 import InputComponent from '../components/commonComponents/input';
 import FileInput from '../components/commonComponents/input/FileInput';
 import { getDownloadURL, getStorage, ref, uploadBytes  } from 'firebase/storage';
-import { db } from '../firebase';
+import { db,auth } from '../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { getAuth} from 'firebase/auth';
 
 function EditProfile() {
     let user = useSelector(state=>state.user.user);
     console.log('edit profile',user);
+
     let [name,setName] = useState(user.name);
-    let [email,setEmail] = useState(user.email);
     let [profilepic,setProfilePic] = useState(user.photoURL);
     let navigate = useNavigate();
 
-    let handleImage = async () => {
-        const profileImageRef = ref(getStorage(),`users/`);
-      uploadBytes(profileImageRef, profilepic).then((snapshot) => {
+    let handleImage = async (file) => {
+
+      const profileImageRef = ref(getStorage(),`users/${user.uid}`);
+      uploadBytes(profileImageRef, file).then((snapshot) => {
         console.log('Uploaded a profile photo');
       });
       const profileImageURL = await getDownloadURL(profileImageRef);
-      console.log('url',profileImageURL)
       setProfilePic(profileImageURL);
-      console.log(profilepic);
+      console.log(profileImageURL);
     }
 
 
     let handleEditProfile = async() => {
-        const userRef = doc(db, "users",user.uid);
-        console.log('user ref',userRef);
 
-            await updateDoc(userRef, {
-                name,
-                email,
-                photoURL:profilepic
-              });
-              console.log('updated');
+      const edituser = getAuth().currentUser;
+      console.log(edituser);
 
-        toast.success('profile edited successfully');
+    /*  updateEmail(edituser,
+        //photoURL:profilepic,
+        `${newEmail}`
+      );*/
+     // console.log(edituser.photoURL,edituser.email);
+        let userRef = doc(db,'users',user.uid);
+
+        if(profilepic){
+          await updateDoc(userRef,{
+            name,
+            photoURL:profilepic
+          })
+          toast.success('profile edited successfully');
+        }
+
+        setName('');
+        setProfilePic(null);
+        
         navigate('/profile')
     }
 
@@ -52,20 +64,14 @@ function EditProfile() {
             state={name} 
             setState={setName}
             placeholder={'Enter the New Name'}/>
-      <InputComponent 
-            type='text' 
-            state={email} 
-            setState={setEmail}
-            placeholder={'Enter the New Email'}/>
       <FileInput 
             accept={'image/*'} 
-            id={'audio-file'} 
+            id={'photo-file'} 
             text={'Upload Profile Photo'} 
-            handleFunc={handleImage}/>
-        <img src={profilepic}/>
+            handleFunc={file=>handleImage(file)}/>
       <Button text={'Edit Profile'} 
-        onClick={handleEditProfile} 
-        disabled={false}/>
+            onClick={handleEditProfile} 
+            disabled={false}/>
     </div>
   )
 }

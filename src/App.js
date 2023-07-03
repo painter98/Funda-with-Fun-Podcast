@@ -18,6 +18,7 @@ import { doc } from 'firebase/firestore';
 import { setUser } from './slices/userSlice';
 import { useDispatch } from 'react-redux';
 import PrivateRoutes from './components/PrivateRoutes';
+import ForgotPassword from './pages/forgotPassword';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
           <Route path='/podcast' element={<PodcastPage/>}/>
           <Route path='/podcast/:id' element={<PodcastDetails/>}/>
           <Route path='/podcast/:id/create-episode' element={<CreateEpisode/>}/>
+          <Route path='/forgotPassword' element={<ForgotPassword/>}/>
       </Route>
         </Routes>
     </div>
