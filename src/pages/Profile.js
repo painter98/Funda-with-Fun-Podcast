@@ -59,7 +59,7 @@ import { doc, getDoc } from 'firebase/firestore';
   return (
     <div className='input-wrapper'>
       <h1>Profile</h1>
-      <img src={userData.photoURL?`${userData.photoURL}.jpg`:noPhoto} className='profile-picture' alt={'profile photo'}/>
+      <img src={userData.photoURL?`${userData.photoURL}`:noPhoto} className='profile-picture' alt={'profile photo'}/>
       <p>User Name: {user.name}</p>
       <Button text={'Edit profile'} onClick={handleEdit} disabled={false}/>
       <Button text={'Change Passowrd'} 
